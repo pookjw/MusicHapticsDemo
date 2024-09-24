@@ -17,7 +17,7 @@
 @property (retain, nonatomic, readonly) UIStackView *stackView;
 @property (retain, nonatomic, readonly) UIButton *playButton;
 @property (retain, nonatomic, readonly) UIButton *pauseButton;
-@property (retain, nonatomic, readonly) AVPlayer *player;
+@property (retain, nonatomic, nullable) AVPlayer *player;
 @property (retain, nonatomic, nullable) id statusObserver;
 @end
 
@@ -140,6 +140,7 @@
         }];
         
         [player play];
+        weakSelf.player = player;
         [player release];
         
         assert(reinterpret_cast<BOOL (*)(id, SEL)>(objc_msgSend)(MAMusicHapticsManager.sharedManager, sel_registerName("musicHapticsActive")));

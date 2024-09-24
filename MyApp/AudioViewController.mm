@@ -56,7 +56,7 @@
     }];
     
     self.statusObserver = [MAMusicHapticsManager.sharedManager addStatusObserver:^(NSString * _Nonnull internationalStandardRecordingCode, BOOL musicHapticsActive) {
-        abort();
+        // Not called...
     }];
     
     [UIApplication.sharedApplication beginReceivingRemoteControlEvents];
